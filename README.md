@@ -2,10 +2,8 @@
 by Hayeong Pyeon
 
 ## Description
-- This is a weekend homework for **React Fundamentals** course provided by [Epicodus](https://www.epicodus.com/).
-
-## Github Pages
-https://hypyeon.github.io/React-homework-helpQueue/
+- This is a weekend homework for **React Fundamentals** course provided by Epicodus.
+- Concepts covered in this project: React components, JSX, Props and PropTypes, image adding, State (local and shared), Conditional rendering, State updating with Events, Binding functions, UUID(GUID), Form handling and Data passing via callbacks. 
 
 ## Available Scripts
 

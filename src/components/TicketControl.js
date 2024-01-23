@@ -7,7 +7,8 @@ class TicketControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-        formVisibleOnPage: false
+        formVisibleOnPage: false,
+        mainTicketList: []
     };
     this.handleClick = this.handleClick.bind(this);
     // when `this.handleClick` is called, it should have the current context of `this` bound to it. Because of it being inside the constructor, `this` is an instance of the class itself. `this` is a JS but not React thing. 
@@ -19,6 +20,14 @@ class TicketControl extends React.Component {
     }));
   }
 
+  handleAddingNewTicketToList = (newTicket) => {
+    const newMainTicketList = this.state.mainTicketList.concat(newTicket);
+    this.setState({
+      mainTicketList: newMainTicketList,
+      formVisibleOnPage: false
+    });
+  }
+
   render(){
     // Conditional rendering: 
     let currentlyVisibleState = null;
@@ -27,10 +36,10 @@ class TicketControl extends React.Component {
     let buttonText = null;
 
     if (this.state.formVisibleOnPage) {
-        currentlyVisibleState = <NewTicketForm />;
+        currentlyVisibleState = <NewTicketForm onNewTicketCreation={this.handleAddingNewTicketToList} />;
         buttonText = "Return to Ticket List";
     } else {
-        currentlyVisibleState = <TicketList />
+        currentlyVisibleState = <TicketList ticketList={this.state.mainTicketList} />
         // addTicketButton = <button onClick={this.handleClick}>Add ticket</button>
         buttonText = "Add Ticket";
     }
