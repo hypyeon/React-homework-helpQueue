@@ -2,12 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './components/index.css';
 import App from './components/App';
+import { legacy_createStore as createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducer from './reducers/ticket-list-reducer';
 import reportWebVitals from './components/reportWebVitals';
+
+const store = createStore(reducer);
+
+store.subscribe(() => 
+  console.log(store.getState())
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 

@@ -26,6 +26,7 @@ function TicketList(props){
   return (
     <React.Fragment>
         <hr/> 
+        {/*
         {props.ticketList.map((ticket) =>
         // changing from `mainTicketList` to `props.ticketList` to loop through the list passed down from TicketControl
           <Ticket 
@@ -35,6 +36,16 @@ function TicketList(props){
             issue={ticket.issue}
             id={ticket.id}
             key={ticket.id}/>
+        )}
+        */}
+        {Object.values(props.ticketList).map((ticket) => 
+          <Ticket 
+            whenTicketClicked = {props.onTicketSelection}
+            names={ticket.names}
+            location={ticket.location}
+            issue={ticket.issue}
+            id={ticket.id}
+            key={ticket.id} />
         )}
     </React.Fragment>
   );
